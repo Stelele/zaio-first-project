@@ -32,7 +32,7 @@ function addCart(){
         lastValue.value = newID
 
         document.getElementById('details').append(newButton);
-        document.getElementById(newButton.id).style.padding = "1%";
+        document.getElementById(newButton.id).style.padding = "2%";
         
     }
 
