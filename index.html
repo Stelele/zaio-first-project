@@ -31,10 +31,11 @@
         </div>
         <div class="row d-flex align-items-center" style="width: 40%;">
             <div class="col-sm">
-                <p style="font-size:18pt;color:red;">$14.99</p>    
+                <p id= "totalPriceDisplay" style="font-size:18pt;color:red;">$0</p>
+                
             </div>
             <div class="col-sm">
-                <p class="lightgray">$17.99</p>
+                <p id="chosenPriceDisplay" class="lightgray">$0</p>
             </div>
             <div class="col-sm">
                 <p class="lightgray">25% OFF</p>
@@ -50,26 +51,30 @@
             <label id="disColor"></label>
         </div>
         <div class="row" style="width: 30%;">
-            <button id="color1" style="background-color:darkred" class="button button5" onclick="chosenColor('Electric Red',this.id)" ></button>
-            <button id="color2" style="background-color: purple;" class="button button5" onclick="chosenColor('Purple',this.id)"></button>
-            <button id="color3" style="background-color: black;" class="button button5" onclick="chosenColor('Black',this.id)"></button>
-            <button id="color4" style="background-color: white;" class="button button5" onclick="chosenColor('White',this.id)"></button>
-            <button id="color5" style="background-color: orangered;" class="button button5" onclick="chosenColor('Orange Red',this.id)"></button>
-            <button id="color6" style="background-color: yellow;" class="button button5" onclick="chosenColor('Yellow',this.id)"></button>
-            <button id="color7" style="background-color: blue;" class="button button5" onclick="chosenColor('Blue',this.id)"></button>
-            <button id="color8" style="background-color: darkslategray;" class="button button5" onclick="chosenColor('Dark Slate Gray',this.id)"></button>
-            <button id="color9" style="background-color: burlywood;" class="button button5" onclick="chosenColor('Burlywood',this.id)"></button>
-            <button id="color10" style="background-color: lightskyblue;" class="button button5" onclick="chosenColor('Light Sky Blue',this.id)"></button>
-            <button id="color11" style="background-color: lightgreen;" class="button button5" onclick="chosenColor('Light Green',this.id)"></button>
-            <button id="color12" style="background-color: magenta;" class="button button5" onclick="chosenColor('Magenta',this.id)"></button>
-            <button id="color13" style="background-color: lightsalmon;" class="button button5" onclick="chosenColor('Light Salmon',this.id)"></button>
-            <button id="color14" style="background-color: seagreen;" class="button button5" onclick="chosenColor('Sea Green',this.id)"></button>
-            <button id="color15" style="background-color: grey;" class="button button5" onclick="chosenColor('Grey',this.id)"></button>
-            <button id="color16" style="background-color: brown;" class="button button5" onclick="chosenColor('Brown',this.id)"></button>
-            <button id="color17" style="background-color: rgb(3, 65, 29);" class="button button5" onclick="chosenColor('Dark Green',this.id)"></button>
-            <button id="color18" style="background-color: lightslategrey;" class="button button5" onclick="chosenColor('Light Slate Grey',this.id)"></button>
+            <button id="color1" name ="Dark Red" style="background-color:darkred" class="button button5" onclick="chosenColor('Dark Red',this.id,1.11)" ></button>
+            <button id="color2" name ="Purple" style="background-color: purple;" class="button button5" onclick="chosenColor('Purple',this.id,2.22)"></button>
+            <button id="color3" name ="Black" style="background-color: black;" class="button button5" onclick="chosenColor('Black',this.id,3.33)"></button>
+            <button id="color4" name ="White" style="background-color: white;" class="button button5" onclick="chosenColor('White',this.id,4.44)"></button>
+            <button id="color5" name ="Orange Red" style="background-color: orangered;" class="button button5" onclick="chosenColor('Orange Red',this.id,5.55)"></button>
+            <button id="color6" name ="Yellow" style="background-color: yellow;" class="button button5" onclick="chosenColor('Yellow',this.id,6.66)"></button>
+            <button id="color7" name ="Blue" style="background-color: blue;" class="button button5" onclick="chosenColor('Blue',this.id,7.77)"></button>
+            <button id="color8" name ="Dark Slate Gray" style="background-color: darkslategray;" class="button button5" onclick="chosenColor('Dark Slate Gray',this.id,8.88)"></button>
+            <button id="color9" name ="Burlywood" style="background-color: burlywood;" class="button button5" onclick="chosenColor('Burlywood',this.id,9.99)"></button>
+            <button id="color10" name ="Light Sky Blue" style="background-color: lightskyblue;" class="button button5" onclick="chosenColor('Light Sky Blue',this.id,10.15)"></button>
+            <button id="color11" name ="Light Green" style="background-color: lightgreen;" class="button button5" onclick="chosenColor('Light Green',this.id,11.11)"></button>
+            <button id="color12" name ="Magenta" style="background-color: magenta;" class="button button5" onclick="chosenColor('Magenta',this.id,12.12)"></button>
+            <button id="color13" name ="Light Salmon" style="background-color: lightsalmon;" class="button button5" onclick="chosenColor('Light Salmon',this.id,13.13)"></button>
+            <button id="color14" name ="Sea Green" style="background-color: seagreen;" class="button button5" onclick="chosenColor('Sea Green',this.id,14.14)"></button>
+            <button id="color15" name ="Grey" style="background-color: grey;" class="button button5" onclick="chosenColor('Grey',this.id,15.15)"></button>
+            <button id="color16" name ="Brown" style="background-color: brown;" class="button button5" onclick="chosenColor('Brown',this.id,16.16)"></button>
+            <button id="color17" name ="Green Yellow" style="background-color: greenyellow;" class="button button5" onclick="chosenColor('Green Yellow',this.id,17.17)"></button>
+            <button id="color18" name ="Light Slate Grey" style="background-color: lightslategrey;" class="button button5" onclick="chosenColor('Light Slate Grey',this.id,18.18)"></button>
+            
+            <!-- Hidden Elements storing useful processing data -->
             <input type="hidden" id="chosenId">
             <input type="hidden" id="lastValue" value="0">
+            <input type="hidden" id="chosenPrice" value="0">
+            <input type="hidden" id="totalPriceValue" value="0">    
         </div>
         <div class="row">
             <div style="padding-top: 1%;" class="col">
@@ -81,12 +86,15 @@
                 <strong>Your Custom Fit</strong>
             </div>
         </div>
-        <div class="row" style="width: 30%;">
+        <div class="row" style="width: 40%;">
             <div class="col-xs">
                 <button id="checkoutNum" style="border-color: black;color:black" class="btn btn-outline-primary">0</button>
             </div>
             <div class="col" >
-                <button id="cart" style="border-color: black;background-color: black;" style="width: 100%;" class="btn btn-primary" data-toggle="modal" data-target="#modelId">Add to Cart</button>
+                <button id="cart" style="border-color: black;background-color: black;" style="width: 100%;" class="btn btn-primary" data-toggle="modal" data-target="#addToCartModal">Add to Cart</button>
+            </div>
+            <div id="checkOut" class="col" hidden>
+                <button onclick="displayCartDetails()" style="border-color: black;background-color: black;" style="width: 100%;" class="btn btn-primary" data-toggle="modal" data-target="#checkOutNowModal">Check Out Now</button>
             </div>
         </div>
         <div style="width: 30%;" class="row">
@@ -110,7 +118,7 @@
     </div>
     
     <!-- Modal -->
-    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal fade" id="addToCartModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -144,11 +152,36 @@
             </div>
         </div>
     </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="checkOutNowModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Check out Cart</h5>
+                        <button onclick="document.getElementById('checkOutBody').innerHTML = ''" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid" id="checkOutBody">
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="location.reload()" type="button" class="btn btn-success">Checkout</button>
+                    <button onclick="document.getElementById('checkOutBody').innerHTML = ''" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Custom written script to process operations on the page  -->
     <script src="scripts/functions.js" lang="JavaScript"></script>
   </body>
 </html>
